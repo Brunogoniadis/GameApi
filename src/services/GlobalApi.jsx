@@ -1,4 +1,4 @@
-import axios from 'axios';
+/* import axios from 'axios';
 
 function GlobalAPI() {
     const key = "5b057e92669e4147b0c1928da037756a";
@@ -13,4 +13,4 @@ function GlobalAPI() {
     return getGenreList;
 }
 
-export default GlobalAPI; 
+export default GlobalAPI;  */
