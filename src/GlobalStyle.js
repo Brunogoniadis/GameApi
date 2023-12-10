@@ -30,17 +30,16 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-
-
-
   body,html{
     width: 100vw;
     height: 100vh;
+
   }
 
   body {
 
-    
+    font-family: 'Inter', sans-serif;
+
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
 
@@ -52,8 +51,21 @@ export default createGlobalStyle`
     font-size: 1.6rem;
   }
 
-  h1, h2, h3, h4, h5, h6, strong{
+  h1, h2, h3, h4, strong{
     font-weight: 500;
+  }
+
+  h1{
+    font-size: 35px;
+  }
+  h2{
+    font-size: 26px;
+  }
+  h3{
+    font-size: 18px;
+  }
+  h4{
+    font-size: 15px;
   }
 
   button {

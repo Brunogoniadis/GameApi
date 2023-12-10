@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Categories from './pages/Categories/Categories';
 import Home from './pages/Home/Home';
-import MainHeader from './pages/Components/Header/Header.tsx';
+import MainHeader from './Components/Header/Header.tsx';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
