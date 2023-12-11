@@ -56,16 +56,16 @@ export default createGlobalStyle`
   }
 
   h1{
-    font-size: 35px;
+    font-size: 28px;
   }
   h2{
-    font-size: 26px;
+    font-size: 20px;
   }
   h3{
-    font-size: 18px;
+    font-size: 14px;
   }
   h4{
-    font-size: 15px;
+    font-size: 12px;
   }
 
   button {
