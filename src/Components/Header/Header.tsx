@@ -7,13 +7,13 @@ function Header() {
       <Navigation>
         <div className="Logo"><h1>Logo</h1></div>
         <ul>
-          <li><a href="#"><h3>Categorias</h3></a></li>
+          <li><a href="#"><h3>Category</h3></a></li>
 
-          <li><a href="#"><h3>Comunidade</h3></a></li>
-          <li><a href="#"><h3>Sobre</h3></a></li>
+          <li><a href="#"><h3>Community</h3></a></li>
+          <li><a href="#"><h3>About</h3></a></li>
         </ul>
       </Navigation>
-      <SearchBar type="text" placeholder="Pesquisar..." />
+      <SearchBar type="text" placeholder="Search"  />
     </HeaderWrapper>
   );
 }

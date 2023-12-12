@@ -5,10 +5,12 @@ export default createGlobalStyle`
   :root {
     --color-text: #FFFFFF;
     --color-text-in-primary: #000000;
-    --color-primary: #3EC863;
+    --color-primary: #3f0d47;
     --color-secondary: #310A27;
     --color-tertiary: #102542;
+    --color-border-secondary: #F8CCFF;
     --color-border: rgba(255, 255, 255, 0.2);
+
     --color-success: #7CC39C;
     --color-warning: #FBEA85;
     --color-error: #EA524F;
