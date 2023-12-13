@@ -1,18 +1,37 @@
 import React from 'react';
-import { MiniCardWrapper, MainCardWrapper } from './styled';
+import { MiniCardWrapper, MainCardWrapper, CaroselCardWrapper } from './styled';
+import { useState } from 'react';
 
-function MainCard({ variant }) {
-    const cardContent = variant === 'mini' ? (
-        <MiniCardWrapper>
-            <div className="overlay"></div>
-            <h2>The Last of Us</h2>
-        </MiniCardWrapper>
-    ) : (
-        <MainCardWrapper>
-            <div className="overlay"></div>
-            <h2>The Last of Us</h2>
-        </MainCardWrapper>
-    );
+function MainCard({ variant, gameName,backgroundUrl }) {
+
+    const [backgorundlink, setBackgroundlink] = useState(backgroundUrl)
+
+    console.log(backgroundUrl)
+    let cardContent;
+
+    if (variant === 'mini') {
+        cardContent = (
+            <MiniCardWrapper style={{ backgroundImage: `url(${backgroundUrl})` }} >
+
+                <div className="overlay"></div>
+                <h2>{gameName}</h2>
+            </MiniCardWrapper>
+        );
+    } else if (variant === 'carosel') {
+        cardContent = (
+            <CaroselCardWrapper style={{ backgroundImage: `url(${backgroundUrl})` }}>
+                <div className="overlay"></div>
+                <h2>{gameName}</h2>
+            </CaroselCardWrapper>
+        );
+    } else {
+        cardContent = (
+            <MainCardWrapper style={{ backgroundImage: `url(${backgroundUrl})` }}>
+                <div className="overlay"></div>
+                <h2>{gameName}</h2>
+            </MainCardWrapper>
+        );
+    }
 
     return (
         <div>

@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import mainBanner from '../../assets/mainBanner.png';
-
+import mainBackground from '../../assets/MainBackground.png'
 
 export const HomeWrapper = styled.div`
-  position: relative;
+
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${mainBackground});
+
 `;
 
 export const VideoContainer = styled.div`
@@ -15,13 +21,20 @@ export const VideoContainer = styled.div`
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  overflow: hidden;
+
+    
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${mainBackground});
 `;
 
 export const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
+  filter: blur(1rem);
 `;
 
 export const Content = styled.div`
@@ -35,7 +48,6 @@ export const Content = styled.div`
 
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(1rem);
 
   display: flex;
   flex-direction: column;
@@ -55,7 +67,7 @@ export const Content = styled.div`
   .banner-container{
 
     width: 100%;
-    height: 100%;
+    height: 520px;    
     background-image: url(${mainBanner});
     background-size: cover;
     background-position: center;
@@ -69,11 +81,12 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    justify-content: start;
+    margin-bottom: 3%;
+    
     .main-title{
-    width: 940px;
-      height: 10%;
+      width: 940px;
+      height: 15%;
       align-self: center;
       text-align: start;
       display: flex;
@@ -81,6 +94,7 @@ export const Content = styled.div`
 
       h3{
         font-weight: bold;
+        width: 100%;
       }
     }
   }

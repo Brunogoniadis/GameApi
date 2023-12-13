@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 
 const commonStyles = css`
-    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/ca6Dr3k7PXKaDgEbhN9eODeD.png');
     background-size: cover; 
     background-position: center;
     border-radius: 10px;
@@ -11,6 +10,10 @@ const commonStyles = css`
     position: relative;
     object-fit: cover;
     transition: filter 0.3s ease; 
+
+
+  
+
     .overlay {
         position: absolute;
         top: 0%;
@@ -65,6 +68,30 @@ export const MiniCardWrapper = styled.button`
     ${commonStyles}
     width: 140px;
     height: 90px;
+    h2 {
+        width: 100%;
+        font-size: 16px;
+        margin-top: 5rem;
+        margin-right:  40rem;
+        font-weight: bold;
+        transform: translateX(-190%); 
+        transition: transform 0.3s ease;
+        color: white;
+    }
+    &:hover h2 {
+        transform: translateX(0);
+    }
+`;
+
+
+export const CaroselCardWrapper = styled.button`
+    ${commonStyles}
+    width: 175px;
+    height: 218px;
+
+
+    clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0 100%, 0% 30%);
+
     h2 {
         width: 100%;
         font-size: 16px;

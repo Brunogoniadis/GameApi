@@ -14,7 +14,7 @@ export default createGlobalStyle`
     --color-success: #7CC39C;
     --color-warning: #FBEA85;
     --color-error: #EA524F;
-
+    --color-background-main: #351D51;
 
     font-size: 60%;   
   }
@@ -35,7 +35,7 @@ export default createGlobalStyle`
   body,html{
     width: 100vw;
     height: 100vh;
-
+    background-color: var(--color-background-main);
   }
 
   body {
