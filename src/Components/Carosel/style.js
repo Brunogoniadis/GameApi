@@ -89,6 +89,7 @@ background-image: url(${arrowRight});
   background-color: #8d3986;
   border-radius: 57px;
   width: 63px;
+  height: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

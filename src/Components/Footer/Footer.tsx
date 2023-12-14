@@ -1,8 +1,13 @@
 import React from 'react'
+import { FooterWrapper } from './styles'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <FooterWrapper>
+      <div className="Logo">
+        Logo
+      </div>
+    </FooterWrapper>
   )
 }
 

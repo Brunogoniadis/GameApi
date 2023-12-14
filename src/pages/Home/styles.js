@@ -11,38 +11,14 @@ export const HomeWrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-image: url(${mainBackground});
-
-`;
-
-export const VideoContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-
-    
-  background-position: center;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${mainBackground});
-`;
-
-export const Video = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   
-  filter: blur(1rem);
-`;
+  display: flex;
+  align-items: center;
 
-export const Content = styled.div`
-  position: absolute;
+  .Content{
   margin-top: 12rem;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
   color: white;
 
@@ -82,8 +58,7 @@ export const Content = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    margin-bottom: 3%;
-    
+    margin:3%;  
     .main-title{
       width: 940px;
       height: 15%;
@@ -153,4 +128,30 @@ export const Content = styled.div`
     }
 
   }
+}
+
 `;
+
+export const VideoContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+
+    
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${mainBackground});
+`;
+
+export const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  filter: blur(1rem);
+`;
+
