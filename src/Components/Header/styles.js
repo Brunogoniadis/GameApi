@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  background-color: rgba(255, 0, 234, 0.05);
+  background-color: #6d0384;
   backdrop-filter: blur(1.8rem);
   color: #fff;
   padding: 1em;
@@ -18,7 +18,6 @@ export const HeaderWrapper = styled.div`
   width: 100%;
 
   border-bottom: 1px solid transparent;
-  background: linear-gradient(to bottom, rgba(255, 0, 234, 0.08) 0%, rgba(114, 0, 137, 1.0) 100%);
 `;
 
 export const Navigation = styled.nav`

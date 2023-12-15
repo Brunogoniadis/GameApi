@@ -16,6 +16,9 @@ export default createGlobalStyle`
     --color-error: #EA524F;
     --color-background-main: #351D51;
 
+
+    
+
     font-size: 60%;   
   }
 
@@ -35,7 +38,20 @@ export default createGlobalStyle`
   body,html{
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-background-main);
+    
+    &:after {
+    content: '';
+    position: fixed;
+    bottom: 0%;
+    left: 50%; /* Centralizado na largura */
+    right: 50%; /* Centralizado na largura */
+    transform: translateX(-50%); /* Centralizado na largura */
+    z-index: -1;
+
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle at bottom, var(--color-secondary), var(--color-background-main) 60%);
+  }
   }
 
   body {
