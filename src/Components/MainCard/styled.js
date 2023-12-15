@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 
 const commonStyles = css`
@@ -35,6 +36,11 @@ const commonStyles = css`
         border-radius: 10px;
         border: 5px solid transparent;
         background: linear-gradient(45deg, transparent, #750288) border-box;
+
+
+        
+
+
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: destination-out;
         mask-composite: exclude;
@@ -86,9 +92,32 @@ export const MiniCardWrapper = styled.button`
 
 export const CaroselCardWrapper = styled.button`
     ${commonStyles}
-    width: 175px;
+    width: 208px;
     height: 218px;
 
+
+    clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0 100%, 0% 30%);
+
+    h2 {
+        width: 100%;
+        font-size: 16px;
+        margin-top: 5rem;
+        margin-right:  40rem;
+        font-weight: bold;
+        transform: translateX(-190%); 
+        transition: transform 0.3s ease;
+        color: white;
+    }
+    &:hover h2 {
+        transform: translateX(0);
+    }
+`;
+
+
+export const CategoryWrapper = styled.button`
+    ${commonStyles}
+    width: 290px;
+    height: 163px;
 
     clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0 100%, 0% 30%);
 

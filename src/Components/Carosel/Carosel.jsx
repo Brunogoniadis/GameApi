@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { CaroselWrapper, CustomSlider, CaroselChild } from './style'
 import MainCard from './../../Components/MainCard/MainCard'
+import { Link } from 'react-router-dom'
 
 var settings = {
     dots: true,
@@ -10,39 +11,33 @@ var settings = {
     slidesToScroll: 1
 };
 
-function Carosel() {
+function Carosel({ items }) {
+    const [itemsState, setItemsState] = useState([]);
+
+    useEffect(() => {
+        setItemsState(items);
+    }, [items]);
+
+    console.log("CAROSELITEMS", itemsState);
+
     return (
         <CaroselWrapper>
             <CustomSlider {...settings}>
 
-                <MainCard variant="carosel"
-                    gameName="Mortal Kombat 1"
-                    backgroundUrl="https://sm.ign.com/t/ign_br/screenshot/default/mortalkombat-7mins-blogroll-1-1547679583972-1280w_f8zx.1200.jpg" />
+                {itemsState.map((item, index) => (
+                    <Link to={`/Category/${item.id.toString()}/${encodeURIComponent(item.name)}`}>
 
-                <MainCard variant="carosel"
-                    gameName="Mirros Edge"
-                    backgroundUrl="https://image.api.playstation.com/cdn/UP0006/CUSA01566_00/GNzYmR2mZswWvkc2qTMMCRtWeU78y4gj.png" />
-
-                <MainCard variant="carosel"
-                    gameName="Flatout 2"
-                    backgroundUrl="https://upload.wikimedia.org/wikipedia/en/4/40/Flatout2pc.jpg" />
-
-
-                <MainCard variant="carosel"
-                    gameName="Horizon Chase"
-                    backgroundUrl="https://files.tecnoblog.net/wp-content/uploads/2020/12/10_jogos_pc_horizon_chase.jpg" />
-
-
-                <MainCard variant="carosel"
-                    gameName="God of War"
-                    backgroundUrl="https://m.media-amazon.com/images/I/81gXqxyFrxL._AC_UF1000,1000_QL80_.jpg" />
-
-
-
+                        <MainCard
+                            key={index}
+                            variant="carosel"
+                            gameName={item.name}
+                            backgroundUrl={item.image_background}
+                        />
+                    </Link>
+                ))}
             </CustomSlider>
-
         </CaroselWrapper>
-    )
+    );
 }
 
 export default Carosel;

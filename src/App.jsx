@@ -1,8 +1,8 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Categories from './pages/Categories/Categories';
+import Category from './pages/Categories/Category';
 import Home from './pages/Home/Home';
-import MainHeader from './Components/Header/Header.tsx';
+import Header from './Components/Header/Header';
 import GlobalStyle from './GlobalStyle';
 import Footer from './Components/Footer/Footer'
 
@@ -12,11 +12,16 @@ function App() {
     <>
       <GlobalStyle />
       <Router>
-        <MainHeader />
+        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
+
+
+
+          <Route path="/category/:categoryId/:categoryName" element={<Category />} />
+          
+
         </Routes>
         <Footer/>
       </Router>

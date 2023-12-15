@@ -1,11 +1,24 @@
 
 import { HomeWrapper } from './styles';
-import cityVideo from '../../../public/videos/city.mp4';
 import MainCard from '../../Components/MainCard/MainCard'
 import Carosel from '../../Components/Carosel/Carosel';
-
+import GlobalAPI from '../../services/GlobalApi';
+import React, { useEffect, useState } from "react";
 
 function Home() {
+
+    const globalAPI = new GlobalAPI();
+
+    const [genreList, setGenreList] = useState([]);
+
+    useEffect(() => {
+
+        globalAPI.getGenreList().then(response => {
+            setGenreList(response.data.results);
+        });
+
+    }, []);
+
     return (
         <HomeWrapper>
 
@@ -58,17 +71,19 @@ function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='main-section'>
-                    <div className='main-title'>
-                        <h3>
-                            Recommended by you
-                        </h3>
-                    </div>
-                    <Carosel />
-                </section>
-
-
             </div>
+            <section className='main-section'>
+                <div className='main-title'>
+                    <h3>
+                        Recommended by you
+                    </h3>
+                </div>
+                <Carosel items={genreList} />
+
+            </section>
+
+
+
         </HomeWrapper>
     );
 }

@@ -7,13 +7,12 @@ export const HomeWrapper = styled.div`
   width: 100%;
   height: 100%;
   
-  background-position: center;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${mainBackground});
   
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+
 
   .Content{
   margin-top: 12rem;
@@ -29,6 +28,10 @@ export const HomeWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${mainBackground});
 
   .BannerWrapper{
     width: 100%;
@@ -38,6 +41,8 @@ export const HomeWrapper = styled.div`
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(1rem);
+    
+
 
   }
   .banner-container{
@@ -52,27 +57,7 @@ export const HomeWrapper = styled.div`
   }
 
 
-  .main-section{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    margin:3%;  
-    .main-title{
-      width: 940px;
-      height: 15%;
-      align-self: center;
-      text-align: start;
-      display: flex;
-      align-items: center;
 
-      h3{
-        font-weight: bold;
-        width: 100%;
-      }
-    }
-  }
 
   .recommended-games{
     width: 940px;
@@ -128,8 +113,32 @@ export const HomeWrapper = styled.div`
     }
 
   }
-}
 
+
+}
+.main-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    gap: 15px;
+    
+    .main-title{
+      width: 940px;
+      height: 15%;
+      align-self: center;
+      text-align: start;
+      display: flex;
+      align-items: center;
+
+      h3{
+        font-weight: bold;
+        width: 100%;
+      }
+    }
+  }
 `;
 
 export const VideoContainer = styled.div`

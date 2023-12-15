@@ -78,7 +78,8 @@ background-image: url(${arrowRight});
 }
 
 .slick-dots li {
-  display: block;
+  display: flex;
+  position: relative;
   width: auto;
   margin: 6px -10px;
 }
@@ -96,6 +97,8 @@ background-image: url(${arrowRight});
   z-index: 500;
   transition: background-color 0.3s ease; 
 
+  border: 6px solid #8d3986;
+
   ::before {
     color: transparent;
   }
@@ -106,13 +109,18 @@ background-image: url(${arrowRight});
     }
 
     .slick-dots li button:before {
-    color: transparent;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     }
 
     .slick-dots li.slick-active button {
     background-color: #570b4a;
+    border: 6px solid #570b4a;
     position: relative;
     z-index: 501;
+
     }
 
 `;

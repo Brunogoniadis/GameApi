@@ -1,8 +1,8 @@
 import React from 'react';
-import { MiniCardWrapper, MainCardWrapper, CaroselCardWrapper } from './styled';
+import { MiniCardWrapper, MainCardWrapper, CaroselCardWrapper,CategoryWrapper } from './styled';
 import { useState } from 'react';
 
-function MainCard({ variant, gameName,backgroundUrl }) {
+function MainCard({ variant, gameName, backgroundUrl }) {
 
     const [backgorundlink, setBackgroundlink] = useState(backgroundUrl)
 
@@ -24,7 +24,18 @@ function MainCard({ variant, gameName,backgroundUrl }) {
                 <h2>{gameName}</h2>
             </CaroselCardWrapper>
         );
-    } else {
+    }
+
+    else if (variant === 'category') {
+        cardContent = (
+            <CategoryWrapper style={{ backgroundImage: `url(${backgroundUrl})` }}>
+                <div className="overlay"></div>
+                <h2>{gameName}</h2>
+            </CategoryWrapper>
+        );
+    }
+
+    else {
         cardContent = (
             <MainCardWrapper style={{ backgroundImage: `url(${backgroundUrl})` }}>
                 <div className="overlay"></div>
