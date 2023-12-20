@@ -20,9 +20,12 @@ class GlobalAPI {
         return this.axiosInstance.get(`/games?key=${this.key}&genres=${genreId}`);
     }
 
-
     getGameDetails(gameId) {
         return this.axiosInstance.get(`/games/${gameId}?key=${this.key}`);
+    }
+
+    getGameScreenshots(gameId) {
+        return this.axiosInstance.get(`/games/${gameId}/screenshots?key=${this.key}`);
     }
 }
 

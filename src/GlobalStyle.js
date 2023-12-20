@@ -43,9 +43,9 @@ export default createGlobalStyle`
     content: '';
     position: fixed;
     bottom: 0%;
-    left: 50%; /* Centralizado na largura */
-    right: 50%; /* Centralizado na largura */
-    transform: translateX(-50%); /* Centralizado na largura */
+    left: 50%; 
+    right: 50%; 
+    transform: translateX(-50%); 
     z-index: -1;
 
     height: 100%;
