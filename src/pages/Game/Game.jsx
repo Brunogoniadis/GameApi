@@ -3,6 +3,7 @@ import { GameWrapper } from './styles';
 import GlobalAPI from '../../services/GlobalApi';
 
 function Game() {
+
     const globalAPI = new GlobalAPI();
     const gameId = 3498;
 
@@ -33,41 +34,62 @@ function Game() {
         }
     }, [gameDetails]);
 
-    console.log('HERE:', gameDetails);
-    console.log('HERE:', gameScreenshots);
 
-    const englishDescription = gameDetails?.description?.split('<br />')[0];
+
+    useEffect(() => {
+        console.log('HERE:', gameDetails);
+    }, [gameDetails])
+
+    const englishDescription = gameDetails?.description?.split('<p>')[1]?.split('</p>')[0];
 
 
     return (
-        <GameWrapper>
+
+        <>
             {gameDetails && (
-                <div>
+                <GameWrapper backgroundImage={gameDetails.background_image_additional ? gameDetails.background_image_additional : null}>
                     <div className="title">
                         <h2>{gameDetails.name}</h2>
                     </div>
                     <div className="center-wrapper">
                         <div className="images-wrapper">
-                            <img className="principal-image-container"
-                                src={gameDetails.background_image} alt={gameDetails.name}
-                            >
+                            <img
+                                className="principal-image-container"
+                                src={gameDetails.background_image}
+                                alt={gameDetails.name}
+                            />
 
-                            </img>
-                            {/*                             <div className="others-image-grid">
-                                {gameScreenshots.map(screenshot => (
-                                    <img key={screenshot.id} src={screenshot.image} alt={`Screenshot ${screenshot.id}`} />
+                            <div className="others-image-grid">
+                                {gameScreenshots.slice(0, 4).map(screenshot => (
+                                    <img
+                                        key={screenshot.id}
+                                        src={screenshot.image}
+                                        alt={`Screenshot ${screenshot.id}`}
+                                    />
                                 ))}
-                            </div> */}
+                            </div>
                         </div>
                         <div className="descriptions-container">
                             <p>{englishDescription}</p>
 
                         </div>
                     </div>
-                </div>
+
+                    <div className='misc-infos-wrapper'>
+                        <div className="misc-info-container">
+                            <div className="title-misc">
+                                <h3>teste</h3>
+                            </div>
+                            <div className="content">
+                                teste
+                            </div>
+                        </div>
+                    </div>
+                </GameWrapper>
             )}
-        </GameWrapper>
+        </>
     );
+
 }
 
 export default Game;
