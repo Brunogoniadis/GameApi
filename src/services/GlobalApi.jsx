@@ -25,8 +25,12 @@ class GlobalAPI {
     }
 
     getGameScreenshots(gameId) {
+
         return this.axiosInstance.get(`/games/${gameId}/screenshots?key=${this.key}`);
     }
+
+
 }
+
 
 export default GlobalAPI;

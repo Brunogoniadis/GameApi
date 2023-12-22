@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
 export const GameWrapper = styled.div`
+
+    margin-top: 12rem;
+
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     position: relative; /* Adicionado para posicionar o pseudo-elemento corretamente */
     overflow: auto;
     position: relative;
     z-index: 500;
 
-    gap: 50px;
 
     &::after {
         content: '';
@@ -50,6 +52,7 @@ export const GameWrapper = styled.div`
         color: #ffffff; /* Cor do texto */
         font-size: 24px;
         font-weight: bold;
+        margin-top: 25px
     }
 
     div{
@@ -64,10 +67,9 @@ export const GameWrapper = styled.div`
         justify-content: space-between;
         padding: 20px;
         border-radius: 10px;
-        background-color: #2e3a4e; /* Cor de fundo do centro */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        border: 2px solid #34495e; /* Cor da borda */
-        margin-top: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 7px 0px #000;
+        border: 2px solid var(--color-border);        margin-top: 20px;
         .images-wrapper {
             width: 60%;
             display: flex;
@@ -118,21 +120,32 @@ export const GameWrapper = styled.div`
     .misc-infos-wrapper{
         width: 80%;
         max-width: 965px;
-        height: 150px;
+        height: 180px;
         display: flex;
         flex-direction:row;
         align-items: center;
         justify-content: space-between;
-        background-color:red;
+        margin-top: 62px;
+        
 
+        
         .misc-info-container{
             display:flex;
             flex-direction: column;
             align-items:center;
-            justify-content:center;
-            width: 10%;
+            justify-content:space-between;
+            width: 18%;
+            height:90%;
 
-            background-color: green;
+            padding:10px;
+
+
+            background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 7px 0px #000;
+    border: 2px solid var(--color-border);
+            border-radius:10px;
+
+
             .title-misc{
                 height:10%;
                 text-align: center;
@@ -140,8 +153,29 @@ export const GameWrapper = styled.div`
             .content{
                 height:90%;
                 display: flex;
+                flex-direction:column;
                 align-items: center;
                 justify-content: center;
+
+                img{
+                    width:75px;
+
+                }
+                a{
+                    font-size:12px
+                }
+            }
+            .score{
+                border-radius: 0.4rem;
+                box-shadow: 0 4px 4px 0 rgba(0,0,0,.25);
+                width:75px;
+                height:75px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+                font-weight: bold;
             }
         }
     }

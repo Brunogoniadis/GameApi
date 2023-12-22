@@ -2,16 +2,44 @@ import React, { useState, useEffect } from 'react';
 import { GameWrapper } from './styles';
 import GlobalAPI from '../../services/GlobalApi';
 
+import esrbLogo1 from '../../../src/assets/esrb_ratings/1.svg';
+import esrbLogo2 from '../../../src/assets/esrb_ratings/2.svg';
+import esrbLogo3 from '../../../src/assets/esrb_ratings/3.svg';
+import esrbLogo4 from '../../../src/assets/esrb_ratings/4.svg';
+import esrbLogo5 from '../../../src/assets/esrb_ratings/5.svg';
+import esrbLogo6 from '../../../src/assets/esrb_ratings/6.svg';
+import esrbLogo7 from '../../../src/assets/esrb_ratings/7.svg';
+
+
+
 function Game() {
 
     const globalAPI = new GlobalAPI();
     const gameId = 3498;
 
+
+
+
     const [gameDetails, setGameDetails] = useState(null);
     const [gameScreenshots, setGameScreenshots] = useState([]);
 
+
+    const esrbLogos = {
+        '1': esrbLogo1,
+        '2': esrbLogo2,
+        '3': esrbLogo3,
+        '4': esrbLogo4,
+        '5': esrbLogo5,
+        '6': esrbLogo6,
+        '7': esrbLogo7,
+    };
+    const [esbrClas, setEsbrClas] = useState(null);
+
+    const [metacriticColor, setMetacriticColor] = useState('');
+
+
+
     useEffect(() => {
-        // Obtém os detalhes do jogo
         globalAPI.getGameDetails(gameId)
             .then(response => {
                 setGameDetails(response.data);
@@ -19,7 +47,7 @@ function Game() {
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+    }, [gameId]);
 
     useEffect(() => {
         // Obtém as screenshots do jogo
@@ -31,14 +59,32 @@ function Game() {
                 .catch(error => {
                     console.error(error);
                 });
+
+            if (gameDetails?.esrb_rating?.id && gameDetails.esrb_rating.id >= '1' && gameDetails.esrb_rating.id <= '7') {
+                setEsbrClas(esrbLogos[gameDetails.esrb_rating.id]);
+            } else {
+                // Caso o ID seja inválido
+                setEsbrClas(null);
+            }
+
+
+            const metacriticScore = gameDetails?.metacritic;
+
+            if (metacriticScore >= 90) {
+                setMetacriticColor('#00ce7a'); // Exemplo: cor verde para pontuações acima de 90
+            } else if (metacriticScore >= 70) {
+                setMetacriticColor('#ffbd3f'); // Exemplo: cor amarela para pontuações entre 70 e 89
+            } else {
+                setMetacriticColor('#ff6874'); // Exemplo: cor vermelha para pontuações abaixo de 70
+            }
+
+
         }
     }, [gameDetails]);
 
 
 
-    useEffect(() => {
-        console.log('HERE:', gameDetails);
-    }, [gameDetails])
+
 
     const englishDescription = gameDetails?.description?.split('<p>')[1]?.split('</p>')[0];
 
@@ -78,12 +124,52 @@ function Game() {
                     <div className='misc-infos-wrapper'>
                         <div className="misc-info-container">
                             <div className="title-misc">
-                                <h3>teste</h3>
+                                <h3>ESRB  rate</h3>
                             </div>
                             <div className="content">
-                                teste
+                                {esbrClas && <img src={esbrClas} alt={`ESRB Logo ${gameDetails.esrb_rating.id}`} />}
+
                             </div>
                         </div>
+
+                        <div className="misc-info-container">
+                            <div className="title-misc">
+                                <h3>Metacritic <br /> Score</h3>
+                            </div>
+                            <div className="score" style={{ backgroundColor: metacriticColor }}>
+                                {gameDetails?.metacritic}
+                            </div>
+                        </div>
+
+                        <div className="misc-info-container">
+                            <div className="title-misc">
+                                <h3>Reddit <br />Community</h3>
+                            </div>
+                            <div className="content">
+                                <a href={gameDetails?.reddit_url} target="_blank" rel="noopener noreferrer">https://www.reddit.com</a>
+                            </div>
+                        </div>
+
+                        <div className="misc-info-container" style={{ width: '262px' }}>
+                            <div className="title-misc" >
+                                <h3>Stores</h3>
+                            </div>
+                            <div className="content">
+
+                                {gameDetails?.stores?.map(item => (
+                                    <a
+                                        key={item.id}
+                                        href={item.store.domain ? item.store.domain : '#'}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {item.store.domain}
+                                    </a>
+                                ))}
+
+                            </div>
+                        </div>
+
                     </div>
                 </GameWrapper>
             )}
