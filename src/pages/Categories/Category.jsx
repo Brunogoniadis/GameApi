@@ -24,6 +24,7 @@ function Category() {
       });
   }, [categoryId]);
 
+  
   // Organize as letras em ordem alfabética
   const sortedLetters = Object.keys(categoryGames.reduce((letters, game) => {
     const firstLetter = game.name.charAt(0).toLowerCase();

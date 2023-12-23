@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { GameWrapper } from './styles';
+import { GameWrapper, CenterWrapper } from './styles';
 import GlobalAPI from '../../services/GlobalApi';
+import { useParams } from 'react-router-dom';
 
 import esrbLogo1 from '../../../src/assets/esrb_ratings/1.svg';
 import esrbLogo2 from '../../../src/assets/esrb_ratings/2.svg';
@@ -15,10 +16,10 @@ import esrbLogo7 from '../../../src/assets/esrb_ratings/7.svg';
 function Game() {
 
     const globalAPI = new GlobalAPI();
-    const gameId = 3498;
-
-
-
+    
+    const { gameId } = useParams();
+    
+    const game = gameId;
 
     const [gameDetails, setGameDetails] = useState(null);
     const [gameScreenshots, setGameScreenshots] = useState([]);
@@ -40,19 +41,19 @@ function Game() {
 
 
     useEffect(() => {
-        globalAPI.getGameDetails(gameId)
+        globalAPI.getGameDetails(game)
             .then(response => {
                 setGameDetails(response.data);
             })
             .catch(error => {
                 console.error(error);
             });
-    }, [gameId]);
+    }, [game]);
 
     useEffect(() => {
         // Obtém as screenshots do jogo
         if (gameDetails) {
-            globalAPI.getGameScreenshots(gameId)
+            globalAPI.getGameScreenshots(game)
                 .then(response => {
                     setGameScreenshots(response.data.results);
                 })
@@ -71,19 +72,16 @@ function Game() {
             const metacriticScore = gameDetails?.metacritic;
 
             if (metacriticScore >= 90) {
-                setMetacriticColor('#00ce7a'); // Exemplo: cor verde para pontuações acima de 90
+                setMetacriticColor('#00ce7a'); 
             } else if (metacriticScore >= 70) {
-                setMetacriticColor('#ffbd3f'); // Exemplo: cor amarela para pontuações entre 70 e 89
+                setMetacriticColor('#ffbd3f'); 
             } else {
-                setMetacriticColor('#ff6874'); // Exemplo: cor vermelha para pontuações abaixo de 70
+                setMetacriticColor('#ff6874');
             }
 
 
         }
     }, [gameDetails]);
-
-
-
 
 
     const englishDescription = gameDetails?.description?.split('<p>')[1]?.split('</p>')[0];
@@ -93,11 +91,14 @@ function Game() {
 
         <>
             {gameDetails && (
-                <GameWrapper backgroundImage={gameDetails.background_image_additional ? gameDetails.background_image_additional : null}>
+                <GameWrapper >
                     <div className="title">
                         <h2>{gameDetails.name}</h2>
                     </div>
-                    <div className="center-wrapper">
+                    <CenterWrapper backgroundImage={gameDetails.background_image_additional ? gameDetails.background_image_additional : null}>
+                        
+                        <div className="overlay">
+                            
                         <div className="images-wrapper">
                             <img
                                 className="principal-image-container"
@@ -119,8 +120,11 @@ function Game() {
                             <p>{englishDescription}</p>
 
                         </div>
-                    </div>
+                        </div>
 
+                    </CenterWrapper>
+                    
+                    
                     <div className='misc-infos-wrapper'>
                         <div className="misc-info-container">
                             <div className="title-misc">
@@ -159,10 +163,11 @@ function Game() {
                                 {gameDetails?.stores?.map(item => (
                                     <a
                                         key={item.id}
-                                        href={item.store.domain ? item.store.domain : '#'}
+                                        href={item.store.domain ? (item.store.domain.startsWith('http') ? item.store.domain : 'http://' + item.store.domain) : '#'}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
+
                                         {item.store.domain}
                                     </a>
                                 ))}

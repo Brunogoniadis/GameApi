@@ -1,75 +1,41 @@
 import styled from 'styled-components';
 
-export const GameWrapper = styled.div`
+export const CenterWrapper = styled.div`
+  width: 80%;
+  height: 470px;
+  max-width: 965px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 7px 0px #000;
+  border: 2px solid var(--color-border);
+  background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : 'none')};
+  margin-top: 20px;
+  position: relative;
 
-    margin-top: 12rem;
 
+  .overlay{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: start;
-    position: relative; /* Adicionado para posicionar o pseudo-elemento corretamente */
-    overflow: auto;
-    position: relative;
-    z-index: 500;
+    justify-content: space-between;
 
+    border-radius: 10px;
 
-    &::after {
-        content: '';
+  }
 
         
-        background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : 'none')};
 
-        position: absolute;
-        left: 0;
-        right: 0;
-        z-index: -1;
-
-        display: block;
-
-        background-size:cover;
-        width: 100%;
-        height: 100%;
-
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-        z-index:1;
-        filter:opacity(25%)
-
-    }
-
-
-
-
-    .title {
-        width: 50%;
-        margin-bottom: 2%;
-        color: #ffffff; /* Cor do texto */
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 25px
-    }
-
-    div{
-        z-index: 500;
-    }
-
-    .center-wrapper {
-        width: 80%;
-        max-width: 965px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.5);
-        box-shadow: 0 0 7px 0px #000;
-        border: 2px solid var(--color-border);        margin-top: 20px;
         .images-wrapper {
             width: 60%;
             display: flex;
@@ -77,6 +43,7 @@ export const GameWrapper = styled.div`
             align-items: center;
             justify-content: center;
             gap: 15px;
+            
             .principal-image-container {
 
                 border-radius: 10px;
@@ -115,7 +82,66 @@ export const GameWrapper = styled.div`
 
            
         }
+    
+`
+export const GameWrapper = styled.div`
+
+    margin-top: 12rem;
+
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: relative; /* Adicionado para posicionar o pseudo-elemento corretamente */
+    overflow: auto;
+    position: relative;
+    z-index: 500;
+
+
+    &::after {
+        content: '';
+
+        
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: -1;
+
+        display: block;
+
+        background-size:cover;
+        width: 100%;
+        height: 100%;
+
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        z-index:1;
+        filter:opacity(25%);
+
+        z-index: -1;
     }
+
+
+
+
+    .title {
+        width: 50%;
+        margin-bottom: 2%;
+        color: #ffffff; /* Cor do texto */
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 25px
+    }
+
+
+
+
 
     .misc-infos-wrapper{
         width: 80%;
@@ -134,7 +160,7 @@ export const GameWrapper = styled.div`
             flex-direction: column;
             align-items:center;
             justify-content:space-between;
-            width: 18%;
+            width: 15%;
             height:90%;
 
             padding:10px;
