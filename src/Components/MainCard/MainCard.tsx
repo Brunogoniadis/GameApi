@@ -4,15 +4,12 @@ import { useState } from 'react';
 
 function MainCard({ variant, gameName, backgroundUrl }) {
 
-    const [backgorundlink, setBackgroundlink] = useState(backgroundUrl)
 
-    console.log(backgroundUrl)
     let cardContent;
 
     if (variant === 'mini') {
         cardContent = (
             <MiniCardWrapper style={{ backgroundImage: `url(${backgroundUrl})` }} >
-
                 <div className="overlay"></div>
                 <h2>{gameName}</h2>
             </MiniCardWrapper>

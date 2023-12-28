@@ -25,7 +25,11 @@ function Carosel({ items }) {
             <CustomSlider {...settings}>
 
                 {itemsState.map((item, index) => (
-                    <Link to={`/Category/${item.id.toString()}/${encodeURIComponent(item.name)}`}>
+                    <Link to={`/Category/${item.id.toString()}/${encodeURIComponent(item.name)}`}
+                        style={{
+                            textDecoration:'none'
+                        }}
+                    >
 
                         <MainCard
                             key={index}

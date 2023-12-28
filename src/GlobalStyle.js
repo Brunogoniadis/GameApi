@@ -71,6 +71,7 @@ export default createGlobalStyle`
 
   h1, h2, h3, h4, strong{
     font-weight: 500;
+    text-decoration: none;
   }
 
   h1{

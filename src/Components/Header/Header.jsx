@@ -25,34 +25,37 @@ function Header() {
 
   return (
     <HeaderWrapper>
-      <Navigation>
-        <div className="Logo"><h1>Logo</h1></div>
-        <ul>
-          <li><a href="#"><h3>Category</h3>
+      <div className="MainContainer">
 
-            <div className="category-menu">
+        <Navigation>
+          <div className="Logo"><h1>Logo</h1></div>
+          <ul>
+            <li><a href="#"><h3>Category</h3>
 
-
-
-              {genreList.map(genre => (
-                <Link
-                  className="link-class"
-                  to={`/Category/${genre.id.toString()}/${encodeURIComponent(genre.name)}`}
-                  key={genre.id}>
-                  {genre.name}
-
-                </Link>
-              ))}
+              <div className="category-menu">
 
 
-            </div>
-          </a></li>
 
-          <li><a href="#"><h3>Community</h3></a></li>
-          <li><a href="#"><h3>About</h3></a></li>
-        </ul>
-      </Navigation>
-      <SearchBar type="text" placeholder="Search" />
+                {genreList.map(genre => (
+                  <Link
+                    className="link-class"
+                    to={`/Category/${genre.id.toString()}/${encodeURIComponent(genre.name)}`}
+                    key={genre.id}>
+                    {genre.name}
+
+                  </Link>
+                ))}
+
+
+              </div>
+            </a></li>
+
+            <li><a href="#"><h3>Community</h3></a></li>
+            <li><a href="#"><h3>About</h3></a></li>
+          </ul>
+        </Navigation>
+        <SearchBar type="text" placeholder="Search" />
+      </div>
     </HeaderWrapper>
   );
 }

@@ -1,4 +1,25 @@
-import styled from 'styled-components';
+import styled, { keyframes } from "styled-components";
+
+
+
+const fadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`;
+
+const blurIn = keyframes`
+    0% {
+        filter: blur(10px);
+    }
+    100% {
+        filter: blur(0);
+    }
+`;
+
 
 export const CenterWrapper = styled.div`
   width: 80%;
@@ -15,6 +36,8 @@ export const CenterWrapper = styled.div`
   background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : 'none')};
   margin-top: 20px;
   position: relative;
+
+
 
 
   .overlay{
@@ -43,13 +66,19 @@ export const CenterWrapper = styled.div`
             align-items: center;
             justify-content: center;
             gap: 15px;
-            
+            animation:  ${fadeIn} 2s ease; 
+
             .principal-image-container {
 
                 border-radius: 10px;
                 object-fit: cover;
                 width: 542px;
                 height: 310px;
+            
+                animation: ${blurIn} 4s ease, ${fadeIn} 1s ease; 
+                border: 1px solid #515151;
+                transition: width 0.5s ease, height 0.5s ease; 
+
             }
 
             .others-image-grid {
@@ -58,11 +87,33 @@ export const CenterWrapper = styled.div`
                 justify-content: center;
                 gap: 10px;
 
+                transition: height 0ms.4 ease;
+
+                height:72px;
                 img {
+
+
                     width: 100%;
                     height: 72px;
+                    width: 125px;
+
                     object-fit: cover;
                     border-radius: 10px;
+
+                    border: 1px solid #515151;
+                    animation: opacity 2s ease; 
+                }
+
+                @keyframes opacity {
+                0% {
+                    opacity: 0;
+                }
+                50%{
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
                 }
             }
         }
@@ -131,7 +182,7 @@ export const GameWrapper = styled.div`
 
 
     .title {
-        width: 50%;
+        width: 966px;
         margin-bottom: 2%;
         color: #ffffff; /* Cor do texto */
         font-size: 24px;

@@ -15,11 +15,12 @@ export const CaroselWrapper = styled.div`
 `
 
 export const CustomSlider = styled(Slider)`
-
-
-
+    *{
+      text-decoration: none;
+    }
+    
   .slick-list{
-    width: 45vw;
+    width: 940px;
     height: 220px;
 
     display: grid;
@@ -30,7 +31,10 @@ export const CustomSlider = styled(Slider)`
         display: flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
+
     }
+
 
   }
 
@@ -42,13 +46,15 @@ export const CustomSlider = styled(Slider)`
     background-color: red; 
     height: 170px;
     background-color: transparent;
-
-
-
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    
+  }
 
+  .slick-prev:hover,
+  .slick-next:hover {
+    background-size: 105%;
   }
 
   .slick-prev {
@@ -109,7 +115,7 @@ background-image: url(${arrowRight});
     }
 
     .slick-dots li button:before {
-    color: white;
+    color: transparent;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -172,8 +178,7 @@ export const CaroselChild = styled.button`
         clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0 100%, 0% 30%);
 
         background: linear-gradient(45deg, transparent, #750288) border-box;
-        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
+
         mask-composite: exclude;
     }
     &:hover .overlay {

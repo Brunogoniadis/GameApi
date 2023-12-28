@@ -22,9 +22,14 @@ function Category() {
       .catch(error => {
         console.error(error);
       });
+
   }, [categoryId]);
 
-  
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  })
+
+
   // Organize as letras em ordem alfabética
   const sortedLetters = Object.keys(categoryGames.reduce((letters, game) => {
     const firstLetter = game.name.charAt(0).toLowerCase();
@@ -52,25 +57,30 @@ function Category() {
         <div className='title'>
           {categoryName}
         </div>
-        {sortedLetters.map(letter => (
-          <div key={letter} className='game-group'>
-            <div className='letter-header'>{letter.toUpperCase()}</div>
-            <div className='grid-games'>
-              {gamesByLetter[letter].map(game => (
-                <Link
-                  to={`/category/${categoryId}/${encodeURIComponent(categoryName)}/${game.id}`}
-                  key={game.id}
-                >
-                  <MainCard
-                    variant="category"
-                    gameName={game.name}
-                    backgroundUrl={game.background_image}
-                  />
-                </Link>
-              ))}
+        <div className="game-wrapper">
+          {sortedLetters.map(letter => (
+            <div key={letter} className='game-group'>
+              <div className='letter-header'>{letter.toUpperCase()}
+                <div className="border" />
+              </div>
+              <div className='grid-games'>
+                {gamesByLetter[letter].map(game => (
+                  <Link
+                    to={`/category/${categoryId}/${encodeURIComponent(categoryName)}/${game.id}`}
+                    key={game.id}
+                  >
+                    <MainCard
+                      variant="category"
+                      gameName={game.name}
+                      backgroundUrl={game.background_image}
+                    />
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+
+        </div>
       </div>
     </MainDiv>
   );

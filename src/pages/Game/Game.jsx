@@ -11,18 +11,21 @@ import esrbLogo5 from '../../../src/assets/esrb_ratings/5.svg';
 import esrbLogo6 from '../../../src/assets/esrb_ratings/6.svg';
 import esrbLogo7 from '../../../src/assets/esrb_ratings/7.svg';
 
+import ImageResizer from 'react-image-resizer';
 
 
 function Game() {
 
     const globalAPI = new GlobalAPI();
-    
+
     const { gameId } = useParams();
-    
+
     const game = gameId;
 
     const [gameDetails, setGameDetails] = useState(null);
     const [gameScreenshots, setGameScreenshots] = useState([]);
+
+    const [imageLoaded, setImageLoaded] = useState(false);
 
 
     const esrbLogos = {
@@ -72,9 +75,9 @@ function Game() {
             const metacriticScore = gameDetails?.metacritic;
 
             if (metacriticScore >= 90) {
-                setMetacriticColor('#00ce7a'); 
+                setMetacriticColor('#00ce7a');
             } else if (metacriticScore >= 70) {
-                setMetacriticColor('#ffbd3f'); 
+                setMetacriticColor('#ffbd3f');
             } else {
                 setMetacriticColor('#ff6874');
             }
@@ -83,9 +86,18 @@ function Game() {
         }
     }, [gameDetails]);
 
-
     const englishDescription = gameDetails?.description?.split('<p>')[1]?.split('</p>')[0];
 
+    function resizeImg(image) {
+        console.log("imageURL", image)
+        
+        const resizedImageUrl = image.replace('/media/', '/media/crop/600/400/');
+        
+        console.log("resizedImageUrl", resizedImageUrl);
+
+
+        return resizedImageUrl;
+    }
 
     return (
 
@@ -96,35 +108,36 @@ function Game() {
                         <h2>{gameDetails.name}</h2>
                     </div>
                     <CenterWrapper backgroundImage={gameDetails.background_image_additional ? gameDetails.background_image_additional : null}>
-                        
+
                         <div className="overlay">
-                            
-                        <div className="images-wrapper">
-                            <img
-                                className="principal-image-container"
-                                src={gameDetails.background_image}
-                                alt={gameDetails.name}
-                            />
 
-                            <div className="others-image-grid">
-                                {gameScreenshots.slice(0, 4).map(screenshot => (
-                                    <img
-                                        key={screenshot.id}
-                                        src={screenshot.image}
-                                        alt={`Screenshot ${screenshot.id}`}
-                                    />
-                                ))}
+                            <div className="images-wrapper">
+                                <img
+                                    className="principal-image-container"
+                                    src={resizeImg(gameDetails.background_image)}
+                                    alt={gameDetails.name}
+                                />
+
+                                <div className="others-image-grid">
+                                    {gameScreenshots.slice(0, 4).map(screenshot => (
+                                        <img
+                                            loading="lazy"
+                                            key={screenshot.id}
+                                            src={resizeImg(screenshot.image)}
+                                            alt={`Screenshot ${screenshot.id}`}
+                                        />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <div className="descriptions-container">
-                            <p>{englishDescription}</p>
+                            <div className="descriptions-container">
+                                <p>{englishDescription}</p>
 
-                        </div>
+                            </div>
                         </div>
 
                     </CenterWrapper>
-                    
-                    
+
+
                     <div className='misc-infos-wrapper'>
                         <div className="misc-info-container">
                             <div className="title-misc">
@@ -166,6 +179,7 @@ function Game() {
                                         href={item.store.domain ? (item.store.domain.startsWith('http') ? item.store.domain : 'http://' + item.store.domain) : '#'}
                                         target="_blank"
                                         rel="noopener noreferrer"
+
                                     >
 
                                         {item.store.domain}

@@ -1,5 +1,17 @@
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css, keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`;
+
 
 
 const commonStyles = css`
@@ -10,11 +22,10 @@ const commonStyles = css`
     overflow: hidden; 
     position: relative;
     object-fit: cover;
-    transition: filter 0.3s ease; 
+    text-decoration: none;
 
 
-  
-
+    animation: ${fadeIn} 1.2s ease; 
     .overlay {
         position: absolute;
         top: 0%;
@@ -107,6 +118,7 @@ export const CaroselCardWrapper = styled.button`
         transform: translateX(-190%); 
         transition: transform 0.3s ease;
         color: white;
+
     }
     &:hover h2 {
         transform: translateX(0);

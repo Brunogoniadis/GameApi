@@ -1,23 +1,28 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  background-color: #6d0384;
-  backdrop-filter: blur(1.8rem);
-  color: #fff;
-  padding: 1em;
+
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 30em;
-  padding-right: 30em;
+  justify-content: center;
   height: 12rem;
-
+  
   z-index: 1000;
-  position: fixed;
   top: 0;
-  width: 100%;
-
+  
+  color: #fff;
+  background-color: #6d0384;
+  backdrop-filter: blur(1.8rem);
   border-bottom: 1px solid transparent;
+
+  .MainContainer{
+    width: 940px;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -25,6 +30,7 @@ export const Navigation = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 940px;
 
   .Logo {
     color: white;
@@ -93,23 +99,22 @@ export const Navigation = styled.nav`
 
 
   .category-menu {
-  opacity: 0;
-  visibility:hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #710089;
-  border-radius: 2px;
-  padding: 16%;
-  transition: all 0.3s ease;
-  display: grid;
-  grid-template-columns: auto;
+    opacity: 0;
+    visibility:hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #710089;
+    border-radius: 2px;
+    padding: 16%;
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: auto;
     flex-direction: column;
-    
-
     box-shadow: 8px 8px 4px -5px rgba(0,0,0,0.5);
     height: 550px;
     gap: 1%;
+
     .li-category{
       color: white;
       height: 26px;
@@ -124,11 +129,10 @@ export const Navigation = styled.nav`
 
 export const SearchBar = styled.input`
   background-color: var(--color-primary);
-
   padding: 0.5em;
   border: none;
   height: 50px;
-  width: 250px;
+  width: 190px;
   border-radius: 5px;
   border: 1px solid #f8ccff;
 
