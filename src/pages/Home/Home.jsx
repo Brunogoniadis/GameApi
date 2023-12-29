@@ -29,7 +29,7 @@ function Home() {
 
                 setGameDetails1(response.data);
             })
-        globalAPI.getGameDetails(3678)
+        globalAPI.getGameDetails(708999)
             .then(response => {
                 setGameDetails2(response.data);
             })

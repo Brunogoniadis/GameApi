@@ -26,9 +26,7 @@ function Carosel({ items }) {
 
                 {itemsState.map((item, index) => (
                     <Link to={`/Category/${item.id.toString()}/${encodeURIComponent(item.name)}`}
-                        style={{
-                            textDecoration:'none'
-                        }}
+
                     >
 
                         <MainCard

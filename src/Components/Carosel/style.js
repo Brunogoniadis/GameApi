@@ -15,10 +15,10 @@ export const CaroselWrapper = styled.div`
 `
 
 export const CustomSlider = styled(Slider)`
-    *{
-      text-decoration: none;
-    }
-    
+  *{
+    text-decoration: none;
+  }
+
   .slick-list{
     width: 940px;
     height: 220px;

@@ -17,7 +17,7 @@ class GlobalAPI {
     }
 
     getGamesByGenre(genreId) {
-        return this.axiosInstance.get(`/games?key=${this.key}&genres=${genreId}`);
+        return this.axiosInstance.get(`/games?key=${this.key}&genres=${genreId}&page_size=150`);
     }
 
     getGameDetails(gameId) {
@@ -25,10 +25,12 @@ class GlobalAPI {
     }
 
     getGameScreenshots(gameId) {
-
         return this.axiosInstance.get(`/games/${gameId}/screenshots?key=${this.key}`);
     }
 
+    searchGames(query) {
+        return this.axiosInstance.get(`/games?key=${this.key}&search=${query}&page_size=10`);
+    }
 
 }
 
