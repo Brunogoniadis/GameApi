@@ -1,18 +1,4 @@
 {
-    "routes": [
-        {
-            "src": "/:gameId",
-            "dest": "/"
-        },
-        {
-            "src": "/category/:categoryId/:categoryName",
-            "dest": "/"
-        },
-        {
-            "src": "/",
-            "dest": "/"
-        }
-    ],
     "rewrites": [
         {
             "source": "/(.*)",
