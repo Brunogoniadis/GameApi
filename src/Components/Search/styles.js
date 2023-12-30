@@ -18,6 +18,7 @@ export const SearchBarStyle = styled.div`
     width: 190px;
     border-radius: 5px;
 
+    color: white;
     &::placeholder {
       color: #fff;
     }
@@ -76,6 +77,10 @@ export const SearchBarStyle = styled.div`
         font-size: 14px; /* Ajuste o tamanho da fonte conforme necessário */
         color: #ffffff; /* Cor do texto */
         text-align: start;
+      }
+
+      &:hover{
+        background-color: #6d0384;
       }
     }
 

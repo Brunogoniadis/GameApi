@@ -68,11 +68,14 @@ function Home() {
                     </div>
                     <div className='recommended-games'>
                         <div className="left-wrapper">
-                            <MainCard variant="main"
-                                gameName={gameDetails1?.name}
-                                backgroundUrl={gameDetails1?.background_image}
-                            />
+                            <Link
+                                to={`/${gameDetails1?.id}`}>
 
+                                <MainCard variant="main"
+                                    gameName={gameDetails1?.name}
+                                    backgroundUrl={gameDetails1?.background_image}
+                                />
+                            </Link>
                         </div>
                         <div className='right-wrapper'>
                             <h2 className='title-text'>
