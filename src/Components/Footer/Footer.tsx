@@ -6,7 +6,7 @@ function Footer() {
     <FooterWrapper>
       <div className="Logo">
         <p>
-        'All brands represented here belong to their respective owners' (LI-code, 2024)        
+        'All brands represented here belong to their respective owners' LI-code, 2024   
         </p>
       </div>
     </FooterWrapper>
