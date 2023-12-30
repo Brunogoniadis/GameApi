@@ -1,3 +1,16 @@
 {
-    "rewrites":[{"source": "/(.*)", "destination": "/"}]
+    "routes": [
+        {
+            "src": "/:gameId",
+            "dest": "/"
+        },
+        {
+            "src": "/category/:categoryId/:categoryName",
+            "dest": "/"
+        },
+        {
+            "src": "/",
+            "dest": "/"
+        }
+    ]
 }
