@@ -4,9 +4,7 @@ const key = "5b057e92669e4147b0c1928da037756a";
 
 const axiosInstance = axios.create({
     baseURL: 'https://api.rawg.io/api',
-    headers: {
-        'Access-Control-Allow-Origin': 'https://game-api-lac.vercel.app/',
-    },
+
 });
 
 class GlobalAPI {

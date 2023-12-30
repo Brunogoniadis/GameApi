@@ -1,12 +1,3 @@
 {
-    "rewrites": [
-        {
-            "source": "/game-api/:path*",
-            "destination": "/:path*"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/"
-        }
-    ]
+    "rewrites":[{"source": "/(.*)", "destination": "/"}]
 }
