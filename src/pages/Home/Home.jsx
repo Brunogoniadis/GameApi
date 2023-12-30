@@ -4,6 +4,8 @@ import MainCard from '../../Components/MainCard/MainCard'
 import Carosel from '../../Components/Carosel/Carosel';
 import GlobalAPI from '../../services/GlobalApi';
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
+
 
 function Home() {
 
@@ -78,21 +80,37 @@ function Home() {
                             </h2>
                             <div className="others-container">
 
-                                <MainCard variant="mini"
-                                    gameName={gameDetails2?.name}
-                                    backgroundUrl={gameDetails2?.background_image} />
+                                <Link
+                                    to={`/${gameDetails2?.id}`}>
 
-                                <MainCard variant="mini"
-                                    gameName={gameDetails3?.name}
-                                    backgroundUrl={gameDetails3?.background_image} />
+                                    <MainCard variant="mini"
+                                        gameName={gameDetails2?.name}
+                                        backgroundUrl={gameDetails2?.background_image} />
+                                </Link>
 
-                                <MainCard variant="mini"
-                                    gameName={gameDetails4?.name}
-                                    backgroundUrl={gameDetails4?.background_image} />
+                                <Link
+                                    to={`/${gameDetails3?.id}`}>
 
-                                <MainCard variant="mini"
-                                    gameName={gameDetails5?.name}
-                                    backgroundUrl={gameDetails5?.background_image} />
+                                    <MainCard variant="mini"
+                                        gameName={gameDetails3?.name}
+                                        backgroundUrl={gameDetails3?.background_image} />
+                                </Link>
+
+                                <Link
+                                    to={`/${gameDetails4?.id}`}>
+
+                                    <MainCard variant="mini"
+                                        gameName={gameDetails4?.name}
+                                        backgroundUrl={gameDetails4?.background_image} />
+                                </Link>
+
+                                <Link
+                                    to={`/${gameDetails5?.id}`}>
+
+                                    <MainCard variant="mini"
+                                        gameName={gameDetails5?.name}
+                                        backgroundUrl={gameDetails5?.background_image} />
+                                </Link>
 
                             </div>
                         </div>

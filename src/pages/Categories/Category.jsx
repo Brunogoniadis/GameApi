@@ -66,7 +66,7 @@ function Category() {
               <div className='grid-games'>
                 {gamesByLetter[letter].map(game => (
                   <Link
-                    to={`/category/${categoryId}/${encodeURIComponent(categoryName)}/${game.id}`}
+                    to={`/${game.id}`}
                     key={game.id}
                   >
                     <MainCard

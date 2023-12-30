@@ -11,8 +11,6 @@ import esrbLogo5 from '../../../src/assets/esrb_ratings/5.svg';
 import esrbLogo6 from '../../../src/assets/esrb_ratings/6.svg';
 import esrbLogo7 from '../../../src/assets/esrb_ratings/7.svg';
 
-import ImageResizer from 'react-image-resizer';
-
 
 function Game() {
 

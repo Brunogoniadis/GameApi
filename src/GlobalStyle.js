@@ -90,6 +90,10 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+  a{
+    text-decoration: none;
+  }
+
 
   /* width */
   ::-webkit-scrollbar {

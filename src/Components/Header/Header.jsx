@@ -1,61 +1,10 @@
 // Importe as bibliotecas e componentes necessários
 import React, { useEffect, useState } from "react";
-import { HeaderWrapper, Navigation, SearchBarStyle } from "./styles";
+import { HeaderWrapper, Navigation } from "./styles";
 import GlobalAPI from "../../services/GlobalApi";
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
-
-
-
-function SearchBar({ onChange, setSearchGames }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchGames, setSearchGamesLocal] = useState([]);
-  const navigate = useNavigate();
-
-  const handleSearch = async () => {
-    if (onChange) {
-      onChange(searchTerm, setSearchGamesLocal);
-    }
-  };
-
-  useEffect(() => {
-    clearDataSearch
-  }, [navigate]);
-
-  const clearDataSearch = () => {
-    setSearchGamesLocal([]);
-    setSearchTerm([])
-  }
-
-
-  return (
-    <SearchBarStyle>
-      <input
-        className="input-style"
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search games"
-      />
-      <button className="button-style" onClick={handleSearch} />
-
-      <div className="suggestions-wrapper">
-        {searchGames.map((game) => (
-          <>
-            <div className="suggestion-container" key={game.id}>
-              <img src={game.background_image} alt={game.name} />
-              <div className="name">{game.name}</div>
-            </div>
-          </>
-        ))}
-        {searchGames.length > 0 && (
-          <button className="outsideDiv" onClick={()=>{clearDataSearch()}}/>
-        )}
-      </div>
-    </SearchBarStyle>
-  );
-}
-
+import Search from '../Search/Search'
+import logo from '../../assets/logo.svg';
 
 
 function Header() {
@@ -84,7 +33,13 @@ function Header() {
     <HeaderWrapper>
       <div className="MainContainer">
         <Navigation>
-          <div className="Logo"><h1>Logo</h1></div>
+
+          <Link className="Logo"
+            to={'/'}
+          >
+            <img src={logo} alt="Logo" />
+          </Link>
+
           <ul>
             <li>
               <a href="#">
@@ -105,8 +60,8 @@ function Header() {
             <li><a href="#"><h3>About</h3></a></li>
           </ul>
         </Navigation>
-        {/* Passe a função de busca e setSearchGames como propriedades para o componente SearchBar */}
-        <SearchBar onChange={handleSearch} />
+
+        <Search onChange={handleSearch} />
       </div>
     </HeaderWrapper>
   );
